@@ -1,0 +1,60 @@
+[
+  {
+    "name": "OFFLINE",
+    "condition": "c.platform.online != true",
+    "actions": [
+      {"name": "DISABLE_SEARCH", "params": {}, "target": "FilterListAW", "scope":  []}
+    ]
+  },
+  {
+    "name": "ONLINE",
+    "condition": "c.platform.online == true",
+    "actions": [
+      {"name": "ENABLE_SEARCH", "params": {}, "target": "FilterListAW", "scope":  []}
+    ]
+  },
+  {
+    "name": "USER_IS_STUDENT",
+    "condition": "c.user.role == 'student'",
+    "actions": [
+      {"name": "HIDE_ITEMS", "params": { "indexes": [2] }, "target": "AppShellAW", "scope":  []},
+      {"name": "SHOW", "params": {}, "target": "HideableButtonAW", "scope":  ["reserve"]}
+    ]
+  },
+  {
+    "name": "USER_IS_STAFFMEMBER",
+    "condition": "c.user.role == 'staffmember'",
+    "actions": [
+      {"name": "HIDE_ITEMS", "params": { "indexes": [1] }, "target": "AppShellAW", "scope":  []},
+      {"name": "HIDE", "params": {}, "target": "HideableButtonAW", "scope":  ["reserve"]}
+    ]
+  },
+  {
+    "name": "UNIVERSITY_NETWORK",
+    "condition": "c.environment.ip == '127.0.0.2'",
+    "actions": [
+      {"name": "SHOW", "params": {}, "target": "HideableButtonAW", "scope":  ["readonline"]}
+    ]
+  },
+  {
+    "name": "NOT_UNIVERSITY_NETWORK",
+    "condition": "c.environment.ip != '127.0.0.2'",
+    "actions": [
+      {"name": "HIDE", "params": {}, "target": "HideableButtonAW", "scope":  ["readonline"]}
+    ]
+  },
+  {
+    "name": "HAS_CAMERA",
+    "condition": "c.platform.cameraAvailable == true",
+    "actions": [
+      {"name": "SHOW", "params": {}, "target": "HideableButtonAW", "scope":  ["camera"]}
+    ]
+  },
+  {
+    "name": "HAS_NO_CAMERA",
+    "condition": "c.platform.cameraAvailable != true",
+    "actions": [
+      {"name": "HIDE", "params": {}, "target": "HideableButtonAW", "scope":  ["camera"]}
+    ]
+  }
+]
