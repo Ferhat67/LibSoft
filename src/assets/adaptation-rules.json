@@ -56,5 +56,49 @@
     "actions": [
       {"name": "HIDE", "params": {}, "target": "HideableButtonAW", "scope":  ["camera"]}
     ]
+  },
+  {
+    "name": "LEFTHANDED",
+    "condition": "c.user.handedness == 'left'",
+    "actions": [
+      {"name": "SET_MENU_POSITION", "params": { "position": "left" }, "target": "AppShellAW", "scope":  []}
+    ]
+  },
+  {
+    "name": "RIGHTHANDED",
+    "condition": "c.user.handedness == 'right'",
+    "actions": [
+      {"name": "SET_MENU_POSITION", "params": { "position": "right" }, "target": "AppShellAW", "scope":  []}
+    ]
+  },
+  {
+    "name": "DARKMODE",
+    "condition": "c.environment.brightness == 'low'",
+    "actions": [
+      {"name": "SET_DARK_THEME", "params": { "active": true }, "target": "AppShellAW", "scope":  []},
+      {"name": "SET_DARK_THEME", "params": { "active": true }, "target": "FilterListAW", "scope":  []}
+    ]
+  },
+  {
+    "name": "LIGHTMODE",
+    "condition": "c.environment.brightness != 'low'",
+    "actions": [
+      {"name": "SET_DARK_THEME", "params": { "active": false }, "target": "AppShellAW", "scope":  []},
+      {"name": "SET_DARK_THEME", "params": { "active": false }, "target": "FilterListAW", "scope":  []}
+    ]
+  },
+  {
+    "name": "NEWUSER",
+    "condition": "c.user.experience < 5",
+    "actions": [
+      {"name": "COMPACT_MODE", "params": { "active": false }, "target": "AppShellAW", "scope":  []}
+    ]
+  },
+  {
+    "name": "EXPERIENCEDUSER",
+    "condition": "c.user.experience >= 5",
+    "actions": [
+      {"name": "COMPACT_MODE", "params": { "active": true }, "target": "AppShellAW", "scope":  []}
+    ]
   }
 ]

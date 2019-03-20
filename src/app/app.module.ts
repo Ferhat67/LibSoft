@@ -10,8 +10,8 @@ import {FilterListAWComponent} from './adaptive-widgets/filter-list-aw/filter-li
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AdaptationController, CBAUIModule} from 'cbaui';
-import {NoolsRuleEngine} from './rule-evaluator/nools.rule-evaluator';
+import {AdaptationController, COBAUIModule} from 'cobaui';
+import {NoolsRE} from './rule-evaluator/nools.rule-evaluator';
 import {NetworkCP} from './context-provider/network-cp.service';
 import {LocalRP} from './rule-provider/local-rp.service';
 import {CheckPageComponent} from './pages/check-page.component';
@@ -22,6 +22,9 @@ import {ReadPageComponent} from './pages/read-page.component';
 import {ScanPageComponent} from './pages/scan-page.component';
 import {LogoutPageComponent} from './pages/logout-page.component';
 import {CameraInfoCP} from './context-provider/camera-info-cp.service';
+import {HandednessCP} from './context-provider/handedness-cp.service';
+import {ExperienceCP} from './context-provider/experience-cp.service';
+import {AmbientLightCP} from './context-provider/ambient-light-cp.service';
 
 const routes: Routes = [
   {
@@ -71,14 +74,17 @@ const routes: Routes = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    CBAUIModule,
+    COBAUIModule,
   ],
   providers: [
     NetworkCP,
     UserInfoCP,
     CameraInfoCP,
+    HandednessCP,
+    ExperienceCP,
+    AmbientLightCP,
     LocalRP,
-    NoolsRuleEngine
+    NoolsRE
   ],
   bootstrap: [AppComponent]
 })
@@ -87,7 +93,10 @@ export class AppModule {
     aui.registerContextProvider(NetworkCP);
     aui.registerContextProvider(UserInfoCP);
     aui.registerContextProvider(CameraInfoCP);
+    aui.registerContextProvider(HandednessCP);
+    aui.registerContextProvider(ExperienceCP);
+    aui.registerContextProvider(AmbientLightCP);
     aui.registerRuleProvider(LocalRP);
-    aui.registerRuleEvaluator(NoolsRuleEngine);
+    aui.registerRuleEvaluator(NoolsRE);
   }
 }

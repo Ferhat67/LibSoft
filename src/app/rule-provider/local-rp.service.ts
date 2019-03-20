@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RuleProvider } from 'cbaui';
+import { RuleProvider } from 'cobaui';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()

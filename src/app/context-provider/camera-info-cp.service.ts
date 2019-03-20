@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ContextProvider, UpdateMethod } from 'cbaui';
+import { ContextProvider, UpdateMethod } from 'cobaui';
 
 declare var navigator: any;
 

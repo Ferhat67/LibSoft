@@ -1,23 +1,23 @@
 import * as nools from 'nools';
 import { isEmpty } from 'lodash';
-import { RuleEvaluator, ContextParam, AdaptationRule, AdaptationAction, AdaptationController  } from 'cbaui';
+import { RuleEvaluator, ContextParam, AdaptationRule, AdaptationAction, AdaptationController  } from 'cobaui';
 import { Injectable } from '@angular/core';
 
 /**
  * This is a wrapper class to use the Nools rule engine for context adaptation purposes.
  */
 @Injectable()
-export class NoolsRuleEngine extends RuleEvaluator {
+export class NoolsRE extends RuleEvaluator {
 
   private session: any;
   private flow: any;
 
-  constructor(adaptationController: AdaptationController) {
-    super(adaptationController);
+  constructor() {
+    super();
   }
 
   /**
-   *
+   * Start evaluation of rules
    * @param rules
    * @param contextParams
    * @param adaptation
@@ -38,7 +38,7 @@ export class NoolsRuleEngine extends RuleEvaluator {
     // Transform Adaptation Rules to nools DSL format
     const noolsRules = noolsContextModel + this.transformRules(rules);
 
-    console.debug("NoolsRuleEngine: Rules transformed", rules, noolsRules);
+    console.debug("NoolsRE: Rules transformed", rules, noolsRules);
 
     // Build a nools flow from adaptation rules
     this.createFlow(noolsRules, { adaptation: fireAdaptation });

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {AdaptationAction, AdaptationController, AdaptiveWidget} from 'cbaui';
+import {AdaptationAction, AdaptationController, AdaptiveWidget} from 'cobaui';
 
 @Component({
   selector: 'hideable-button-aw',
@@ -14,7 +14,6 @@ export class HideableButtonAWComponent extends AdaptiveWidget{
   @Output('click') onClick: EventEmitter<any> = new EventEmitter();
 
   visible: boolean = true;
-  classes = {"hidden": false};
 
   constructor(ac: AdaptationController) {
     super(ac, "HideableButtonAW");

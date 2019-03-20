@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AdaptiveWidget, AdaptationAction, AdaptationController } from 'cbaui';
+import { AdaptiveWidget, AdaptationAction, AdaptationController } from 'cobaui';
 
 export interface ListItem {
   title: string,

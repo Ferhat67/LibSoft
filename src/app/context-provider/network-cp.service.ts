@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ContextProvider, UpdateMethod } from 'cbaui';
+import { ContextProvider, UpdateMethod } from 'cobaui';
 import { HttpClient } from '@angular/common/http';
 
 declare var window: any;
@@ -21,11 +21,11 @@ export class NetworkCP extends ContextProvider{
     // Initialize context parameter for ip
     this.addContextParam({contextOfUse: 'environment', key: 'ip', value: this.currentIP});
     this.updateContext();
-    setInterval(() => this.checkIP(), 50000);
+    setInterval(() => this.checkIP(), 120000);
   }
 
   checkIP() {
-    this.http.get<any>("https://ipinfo.io?token=5cd2ba78313611__").subscribe(data => {
+    this.http.get<any>("https://ipinfo.io?token=5cd2ba78313611").subscribe(data => {
       this.modifyContextParam('ip', data.ip);
       this.updateContext();
     });

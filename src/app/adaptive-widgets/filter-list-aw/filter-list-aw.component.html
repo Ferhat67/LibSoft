@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" [class.dark-theme]="darkTheme">
   <div class="col-8 col-md-4">
     <div class="form-group">
       <input type="search" [readOnly]="searchDisabled" class="form-control" placeholder="Search..." [(ngModel)]="searchTerm">

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserService } from '../services/user.service';
-import { ContextProvider, UpdateMethod } from 'cbaui';
+import { ContextProvider, UpdateMethod } from 'cobaui';
 
 @Injectable()
 export class UserInfoCP extends ContextProvider {

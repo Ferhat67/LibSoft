@@ -4,7 +4,7 @@ import {BooksService} from '../services/books.service';
 @Component({
   selector: 'te-reservations-page',
   template: `
-    <h3>Reservations</h3>
+    <h3>Borrowed Books</h3>
     <table class="table table-hover">
       <tbody>
       <tr *ngFor="let item of books.getBooks()">

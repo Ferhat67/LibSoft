@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AdaptiveWidget, AdaptationAction, AdaptationController } from 'cbaui';
+import { AdaptiveWidget, AdaptationAction, AdaptationController } from 'cobaui';
+import {AmbientLightCP} from '../../context-provider/ambient-light-cp.service';
 
 export interface MenuItem {
   label: string;
