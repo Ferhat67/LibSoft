@@ -25,3 +25,14 @@ This feature needs access to the device's Ambient Light Sensor and requires the 
 
 3. A compact navigation menu is displayed to more experienced users, while new users are shown a more detailed menu.
 The users experience is measured by the usage time in minutes. Users with a usage time below 5 minutes are considered new.
+
+## User Accounts
+
+There are two user roles in LibSoft: Students and Staff Members.
+
+* Student: Max Mustermann
+  * Username: mmuster
+  * Password: student123
+* Staff Member: John Doe
+  * Username: johndoe
+  * Password: staff123
