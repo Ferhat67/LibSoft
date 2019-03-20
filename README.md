@@ -24,10 +24,19 @@ After NodeJS is set up, follow these instructions:
 Alternatively, use `npm build` to generate application files (html,js,css) for 
 productive use on a web server.
 
-## Runtime Adaptation
+## Device Setup
 
-Notice: To inspect all adaptation features of the application, please use a mobile browser (recommended: Google Chrome Mobile).
+To inspect all adaptation features of the application, please use Google Chrome Mobile browser on a smartphone device.
+For enabling access to the Ambient Light Sensor, follow the steps below:
+
+1. Visit `chrome://flags` URL in Google Chrome Mobile
+2. Search for the flag `Generic Sensor Extra Classes` and set it to `Enabled`;
+
+This enables access to the Ambient Light Sensor for the browser.
+
 Once started, the application is accessible under the URL `https://localhost:4200/`.
+
+## Runtime Adaptation
 
 Following adaptive behavior is observable:
 
