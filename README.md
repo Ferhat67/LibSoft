@@ -1,27 +1,27 @@
 # LibSoft
 
+A web-based application for management and use of a university library.
+It uses the CoBAUI framework (https://www.npmjs.com/package/cobaui) to implement an adaptive user interface.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Clone this repository `git clone https://github.com/Ferhat67/LibSoft.git`
+2. Enter LibSoft directory and run `npm install` to install dependencies
+3. Run `ng serve` to run application
+4. Access `https://localhost:4200/` in your browser to use application
 
-## Code scaffolding
+Alternatively, use `ng build --prod` to generate application files (html,js,css) for 
+productive use on a web server.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Runtime Adaptation
 
-## Build
+1. Navigation menu position is adapted based on user's handedness to allow faster reachability.
+This feature uses the device's Gyroscope Sensor.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+2. A "dark theme" is activated in low ambient light conditions to allow better readability and reduce eye strain.
+This feature needs access to the device's Ambient Light Sensor and requires the application to use https.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+3. A compact navigation menu is displayed to more experienced users, while new users are shown a more detailed menu.
+The users experience is measured by the usage time in minutes. Users with a usage time below 5 minutes are considered new.

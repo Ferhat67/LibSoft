@@ -10,7 +10,7 @@ import {FilterListAWComponent} from './adaptive-widgets/filter-list-aw/filter-li
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AdaptationController, COBAUIModule} from 'cobaui';
+import {AdaptationController, CoBAUIModule} from 'cobaui';
 import {NoolsRE} from './rule-evaluator/nools.rule-evaluator';
 import {NetworkCP} from './context-provider/network-cp.service';
 import {LocalRP} from './rule-provider/local-rp.service';
@@ -74,7 +74,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    COBAUIModule,
+    CoBAUIModule,
   ],
   providers: [
     NetworkCP,
