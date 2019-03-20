@@ -7,15 +7,29 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Installation
 
+NodeJS is needed as a development environment. See https://nodejs.org/en/download/package-manager/ for installation instructions.
+For Ubuntu:
+```
+curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+After NodeJS is set up, follow these instructions:
+
 1. Clone this repository `git clone https://github.com/Ferhat67/LibSoft.git`
 2. Enter LibSoft directory and run `npm install` to install dependencies
-3. Run `ng serve` to run application
+3. Run `npm start` to run application
 4. Access `https://localhost:4200/` in your browser to use application
 
-Alternatively, use `ng build --prod` to generate application files (html,js,css) for 
+Alternatively, use `npm build` to generate application files (html,js,css) for 
 productive use on a web server.
 
 ## Runtime Adaptation
+
+Notice: To inspect all adaptation features of the application, please use a mobile browser (recommended: Google Chrome Mobile).
+Once started, the application is accessible under the URL `https://localhost:4200/`.
+
+Following adaptive behavior is observable:
 
 1. Navigation menu position is adapted based on user's handedness to allow faster reachability.
 This feature uses the device's Gyroscope Sensor.
