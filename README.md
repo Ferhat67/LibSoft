@@ -38,6 +38,8 @@ Once started, the application is accessible under the URL `https://localhost:420
 
 ## Runtime Adaptation
 
+<p align="center"><img src="/Example.gif?raw=true" width="40%"></p>
+
 Following adaptive behavior is observable:
 
 1. Navigation menu position is adapted based on user's handedness to allow faster reachability.
