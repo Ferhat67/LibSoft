@@ -4,7 +4,8 @@ import { AdaptiveWidget, AdaptationAction, AdaptationController } from 'cobaui';
 export interface ListItem {
   title: string,
   path: string,
-  fields: string[]
+  fields: string[],
+  online: string
 }
 
 @Component({
@@ -48,5 +49,9 @@ export class FilterListAWComponent extends AdaptiveWidget implements OnInit {
     if (this.searchTerm)
       return this.listItems.filter(item => item.title.toLowerCase().includes(this.searchTerm.toLowerCase()));
     return this.listItems;
+  }
+
+  trackBy(index, item: ListItem) {
+    return item.title;
   }
 }

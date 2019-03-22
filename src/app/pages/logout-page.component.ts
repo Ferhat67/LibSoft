@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
     <h3>Login</h3>
     <div class="container">
       <div class="row">
-        <div class="col-4">
+        <div class="col-12 col-md-4">
           <div class="form-group">
             <label>Username</label>
             <input type="text" class="form-control" [(ngModel)]="username">

@@ -6,10 +6,14 @@ import {BooksService} from '../services/books.service';
   template: `
     <h3>Borrowed Books</h3>
     <table class="table table-hover">
+      <thead style="font-weight: 800">
+        <td>Title</td>
+        <td>Load period</td>
+      </thead>
       <tbody>
-      <tr *ngFor="let item of books.getBooks()">
+      <tr *ngFor="let item of books.getBooks().slice(3,8)">
         <th scope="row">
-          <a [routerLink]="[item.title]">{{item.title}}</a>
+          {{item.title}}
         </th>
         <td>{{randomDate()}}</td>
       </tr>

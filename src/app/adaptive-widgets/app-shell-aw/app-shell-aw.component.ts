@@ -1,6 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AdaptiveWidget, AdaptationAction, AdaptationController } from 'cobaui';
-import {AmbientLightCP} from '../../context-provider/ambient-light-cp.service';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
+import {UserService} from '../../services/user.service';
+
 
 export interface MenuItem {
   label: string;
@@ -12,18 +20,55 @@ export interface MenuItem {
 @Component({
   selector: 'app-shell-aw',
   templateUrl: './app-shell-aw.component.html',
-  styleUrls: ['./app-shell-aw.component.css']
+  styleUrls: ['./app-shell-aw.component.css'],
+  animations: [
+    trigger('openClose', [
+      state('open', style({
+        opacity: 1,
+        transform: 'translateX(0%)'
+      })),
+      state('closed', style({
+        opacity: 0,
+        transform: 'translateX(-30%)'
+      })),
+      transition('open => closed', [
+        animate('0.3s')
+      ]),
+      transition('closed => open', [
+        animate('0.3s')
+      ]),
+    ]),
+    trigger('openCloseRight', [
+      state('open', style({
+        opacity: 1,
+        transform: 'translateX(0%)'
+      })),
+      state('closed', style({
+        opacity: 0,
+        transform: 'translateX(30%)'
+      })),
+      transition('open => closed', [
+        animate('0.3s')
+      ]),
+      transition('closed => open', [
+        animate('0.3s')
+      ]),
+    ])
+  ]
 })
 export class AppShellAWComponent extends AdaptiveWidget implements OnInit {
 
   @Input('title') title = "";
   @Input('menuItems') menuItems: MenuItem[];
   @Input('color') set HeaderColor(color: string) {
-    this.headerColor.background = color || "#0279b3";
+    this.headerColor.background = color || "#00205b";
   }
 
+  isOpen: boolean;
+  menuRight: boolean = false;
+
   menuMode: string = 'normal';
-  headerColor: any = {background: "#0279b3"};
+  headerColor: any = { background: "#00205b" };
   sidebarOpen: boolean = false;
 
   classes = {
@@ -34,7 +79,7 @@ export class AppShellAWComponent extends AdaptiveWidget implements OnInit {
     content: {"dark-theme": false},
   };
 
-  constructor(ac: AdaptationController) {
+  constructor(ac: AdaptationController, public userService: UserService) {
     super(ac, "AppShellAW");
   }
 
@@ -45,7 +90,8 @@ export class AppShellAWComponent extends AdaptiveWidget implements OnInit {
     switch (action.name) {
       case "SET_MENU_POSITION":
         const positionRight = action.params.position === 'right';
-        this.classes.sidebar["order-last"] = positionRight;
+        this.menuRight = positionRight;
+        this.classes.sidebar["sidebar-right"] = positionRight;
         this.classes.toggle["order-last"] = positionRight;
         break;
       case "COMPACT_MODE":
@@ -78,15 +124,21 @@ export class AppShellAWComponent extends AdaptiveWidget implements OnInit {
   toggleSidebar() {
     if (this.sidebarOpen) {
       this.sidebarOpen = false;
+      this.classes.sidebar["sidebar-closed"] = true;
+      this.classes.sidebar["sidebar-open"] = false;
       this.classes.sidebar["d-block"] = false;
-      this.classes.sidebar["d-none"] = true;
-      this.classes.sidebar["overlay"] = false;
+      this.isOpen = false;
+      //this.classes.sidebar["d-none"] = true;
+      //this.classes.sidebar["overlay"] = false;
     }
     else {
       this.sidebarOpen = true;
+      this.isOpen = true;
+      this.classes.sidebar["sidebar-open"] = true;
+      this.classes.sidebar["sidebar-closed"] = false;
       this.classes.sidebar["d-block"] = true;
-      this.classes.sidebar["d-none"] = false;
-      this.classes.sidebar["overlay"] = true;
+      //this.classes.sidebar["d-none"] = false;
+      //this.classes.sidebar["overlay"] = true;
     }
   }
 }

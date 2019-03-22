@@ -25,6 +25,7 @@ import {CameraInfoCP} from './context-provider/camera-info-cp.service';
 import {HandednessCP} from './context-provider/handedness-cp.service';
 import {ExperienceCP} from './context-provider/experience-cp.service';
 import {AmbientLightCP} from './context-provider/ambient-light-cp.service';
+import {BookDetailPageComponent} from './pages/book-detail-page.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,10 @@ const routes: Routes = [
     component: ReadPageComponent
   },
   {
+    path: 'detail/:id',
+    component: BookDetailPageComponent
+  },
+  {
     path: 'logout',
     component: LogoutPageComponent
   }
@@ -62,6 +67,7 @@ const routes: Routes = [
     ReadPageComponent,
     ScanPageComponent,
     LogoutPageComponent,
+    BookDetailPageComponent,
 
     AppShellAWComponent,
     FilterListAWComponent,

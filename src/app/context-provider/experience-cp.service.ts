@@ -5,6 +5,7 @@ import { ContextProvider, UpdateMethod } from 'cobaui';
 export class ExperienceCP extends ContextProvider{
 
   constructor() {
+    localStorage.setItem("experience", "0");
     super(UpdateMethod.INTERVAL, 60000); // update every minute
     // restore last value and initialize context parameter
     const experience = parseInt(localStorage.getItem("experience") || "0");

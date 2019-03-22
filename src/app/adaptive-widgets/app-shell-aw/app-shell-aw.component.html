@@ -2,16 +2,17 @@
   <button class="btn btn-outline d-block d-md-none" [ngClass]="classes.toggle" (click)="toggleSidebar()">
     <i class="fas fa-bars"></i>
   </button>
-  <div id="title">
+  <a id="title" routerLink="/" style="cursor: pointer">
     <div class="logo">
       <img [alt]="title" src="assets/Logo.png"/>
     </div>
-  </div>
+  </a>
 </div>
 
-<div class="container-fluid h-100">
-  <div class="row  h-100">
-    <div id="sidebar" class="d-none d-md-block h-100" [ngClass]="classes.sidebar">
+<div class="container-fluid">
+  <div class="row h-100">
+    <div id="sidebar" class="d-none d-md-block h-100" [ngClass]="classes.sidebar"
+         [@openClose]="isOpen ? 'open' : 'closed'" [@openCloseRight]="(menuRight) ? ((isOpen) ? 'open' : 'closed'): '' ">
 
       <div id="menu" class="list-group" *ngIf="menuMode == 'normal'" [ngClass]="classes.menu">
         <a class="list-group-item list-group-item-action" [routerLink]="[item.path]" *ngFor="let item of getMenuItems()">
@@ -26,7 +27,8 @@
       </div>
 
     </div>
-    <div id="content" class="col h-100" [ngClass]="classes.content">
+    <div id="content" class="col" [ngClass]="classes.content">
+      <p style="color: darkgray;">Logged in as {{userService.currentUser.name}} ({{userService.getUserRole()|async}})</p>
       <router-outlet></router-outlet>
     </div>
   </div>

@@ -10,7 +10,7 @@ export class HandednessCP extends ContextProvider{
     // call base class constructor. publish context info every 200ms for performance reasons
     super(UpdateMethod.EVENT_BASED);
     // Initialize context parameter for handedness
-    this.addContextParam({contextOfUse: 'user', key: 'handedness', value: 'right'});
+    this.addContextParam({contextOfUse: 'user', key: 'handedness', value: 'left'});
     this.updateContext();
     this.monitorDeviceInclination(); // Start monitoring device tilt
   }
@@ -21,11 +21,11 @@ export class HandednessCP extends ContextProvider{
   }
 
   inferHandedness(inclinationAngle: number) {
-    if (inclinationAngle > 30 && this.getContextParam('handedness').value != 'left') {
+    if (inclinationAngle > 20 && this.getContextParam('handedness').value != 'left') {
       this.modifyContextParam('handedness', 'left');
       this.updateContext();
     }
-    else if (inclinationAngle < -30 && this.getContextParam('handedness').value != 'right') {
+    else if (inclinationAngle < -20 && this.getContextParam('handedness').value != 'right') {
       this.modifyContextParam('handedness', 'right');
       this.updateContext();
     }

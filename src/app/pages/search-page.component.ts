@@ -46,6 +46,7 @@ export class SearchPageComponent implements OnInit {
       return {
         title: book.title,
         path: `/`,
+        online: book.online,
         fields: [book.author]
       };
     });

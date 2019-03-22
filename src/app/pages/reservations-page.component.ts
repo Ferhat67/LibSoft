@@ -7,13 +7,13 @@ import {BooksService} from '../services/books.service';
     <h3>Reservations</h3>
     <table class="table table-hover">
       <tbody>
-      <tr *ngFor="let item of books.getBooks()">
+      <tr *ngFor="let item of books.reservations">
         <th scope="row">
-          <a [routerLink]="[item.title]">{{item.title}}</a>
+          {{item.title}}
+          <p style="font-weight: lighter">Reserved by: Max Mustermann</p>
         </th>
-        <td>{{randomUser()}}</td>
         <td class="text-right">
-          <hideable-button-aw icon="check" label="Issue Book"></hideable-button-aw>
+          <hideable-button-aw icon="check" label="Issue Book" (click)="issue(item.title)"></hideable-button-aw>
         </td>
       </tr>
       </tbody>
@@ -33,6 +33,10 @@ export class ReservationsPageComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  issue(title) {
+    this.books.reservations = this.books.reservations.filter(b => b.title !== title);
   }
 
 }

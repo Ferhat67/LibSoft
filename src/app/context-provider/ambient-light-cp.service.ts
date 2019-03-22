@@ -8,7 +8,7 @@ export class AmbientLightCP extends ContextProvider{
 
   constructor() {
     // call base class constructor
-    super(UpdateMethod.INTERVAL, 10000);
+    super(UpdateMethod.INTERVAL, 2000);
 
     // initialize default brightness value
     this.addContextParam({contextOfUse: 'environment', key: 'brightness', value: 'normal'});
@@ -25,7 +25,7 @@ export class AmbientLightCP extends ContextProvider{
   ambientLightChanged(lux: number) {
     if (lux > 1000)
       this.modifyContextParam('brightness', 'high');
-    else if  (lux < 100)
+    else if  (lux < 30)
       this.modifyContextParam('brightness', 'low');
     else
       this.modifyContextParam('brightness', 'normal');
